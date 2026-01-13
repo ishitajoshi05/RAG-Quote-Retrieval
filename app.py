@@ -1,3 +1,13 @@
+import os
+import sys
+import subprocess
+
+if not os.path.exists("data/processed_quotes.csv"):
+    subprocess.run([sys.executable, "src/data_prep.py"], check=True)
+
+if not os.path.exists("index/faiss.index"):
+    subprocess.run([sys.executable, "src/embedding_index.py"], check=True)
+
 import streamlit as st
 from src.ragpipeline import rag_pipeline
 
@@ -21,3 +31,4 @@ if st.button("Search"):
             st.divider()
     else:
         st.warning("Please enter a query.")
+
