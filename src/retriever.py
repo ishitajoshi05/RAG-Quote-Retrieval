@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 
 df = pd.read_csv("data/processed_quotes.csv")
 index = faiss.read_index("index/faiss.index")
-model = SentenceTransformer("models/sentence_transformer")
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def retrieve_quotes(query, top_k=5):
     query_embedding = model.encode([query])
@@ -20,3 +20,4 @@ def retrieve_quotes(query, top_k=5):
             "distance": float(dist)
         })
     return results
+
