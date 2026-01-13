@@ -1,7 +1,8 @@
+torch
+sentence-transformers
 datasets
 pandas
 numpy
-sentence-transformers
 faiss-cpu
-streamlit
 scikit-learn
+streamlit
